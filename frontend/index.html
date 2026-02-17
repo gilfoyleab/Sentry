@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentry Agent | Security Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="hero">
+    <div class="hero-badge">Sentry Security Agent</div>
+    <h1>Certify. Rank. Harden. Monitor.</h1>
+    <p>
+      A unified workflow for onboarding MCP servers safely in Archestra.
+      Move from ad hoc checks to repeatable TrustOps decisions.
+    </p>
+    <div class="hero-cta">
+      <button id="runWorkflow" class="btn btn-primary">Run TrustOps Plan</button>
+      <button id="showRanking" class="btn btn-outline">Show Benchmark View</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card card-highlight">
+      <h2>Workflow</h2>
+      <ol>
+        <li>Scan and score all installed MCP servers</li>
+        <li>Rank by trust score and weighted risk index</li>
+        <li>Auto-harden risky servers with policies</li>
+        <li>Monitor runtime anomalies</li>
+        <li>Generate audit-ready report</li>
+      </ol>
+      <div class="status-row">
+        <span class="label">Control Plane</span>
+        <span id="healthStatus" class="pill pill-pending">Checking...</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Tool Stack</h2>
+      <div class="tool-grid">
+        <div class="tool">scan_server</div>
+        <div class="tool">trust_score</div>
+        <div class="tool">benchmark_servers</div>
+        <div class="tool">generate_policy</div>
+        <div class="tool">monitor</div>
+        <div class="tool">audit_report</div>
+        <div class="tool tool-accent">trustops_run</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Live Benchmark</h2>
+      <p class="muted">Sample ranking view for onboarding readiness</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Server</th>
+            <th>Score</th>
+            <th>Grade</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody id="rankTable">
+          <tr>
+            <td>payments-mcp</td>
+            <td>84</td>
+            <td>A</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>support-mcp</td>
+            <td>71</td>
+            <td>B</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>malicious-demo</td>
+            <td>0</td>
+            <td>F</td>
+            <td>112</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Quick Prompt</h2>
+      <p class="muted">Use this in Archestra chat profile:</p>
+      <pre id="promptBox">run trustops_run with autoHarden=true, hardenMode=strict, riskThreshold=75</pre>
+      <button id="copyPrompt" class="btn btn-small">Copy Prompt</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built by Sentry Team</span>
+    <span>Project: Sentry Agent</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
