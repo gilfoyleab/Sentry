@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.js.map
+.env
+.env.local
+*.tsbuildinfo
+demo/malicious-server/node_modules/
+src/examples/vulnerable-server/dist/
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+.next/
+dashboard/.next/
+dashboard/node_modules/
